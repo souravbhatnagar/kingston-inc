@@ -1,0 +1,24 @@
+{
+    "name": "kingston-inc",
+    "version": "1.0.0",
+    "description": "Node.js application with CRUD operations on users and products",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "test": "mocha tests"
+    },
+    "author": "सौरव भट्टनागर",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.17.1",
+      "body-parser": "^1.19.0",
+      "cors": "^2.8.5",
+      "morgan": "^1.10.0",
+      "pg": "^8.6.0"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.15",
+      "mocha": "^9.0.3",
+      "chai": "^4.3.4"
+    }
+  }
