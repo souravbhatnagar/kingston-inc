@@ -2,11 +2,26 @@ version: '3.4'
 
 services:
   kingstoninc:
-    image: kingstoninc
+    image: srvbhtngr/kingstoninc:1.0.0
+    container_name: app
     build:
       context: app
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
+      DB_HOST: postgres-db
+      DB_USER: app
+      DB_NAME: kingstonincdb
+      DB_PASSWORD: qwert@09876
     ports:
-      - 3000:3000
+      - 3002:3002
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:13.12
+    container_name: postgres
+    environment:
+      POSTGRES_DB: kingstonincdb
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: qwert@09876

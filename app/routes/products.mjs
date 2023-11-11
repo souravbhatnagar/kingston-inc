@@ -10,8 +10,9 @@ export default (pool) => {
         'INSERT INTO products (name, description, price) VALUES ($1, $2, $3) RETURNING *',
         [name, description, price]
       );
-      res.status(201).json(result.rows[0]);
+      res.status(201).json(result[0]);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'An error occurred' });
     }
   });
@@ -20,8 +21,9 @@ export default (pool) => {
   router.get('/', async (req, res) => {
     try {
       const result = await pool.query('SELECT * FROM products');
-      res.json(result.rows);
+      res.json(result);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'An error occurred' });
     }
   });
@@ -34,8 +36,9 @@ export default (pool) => {
       if (result.rowCount === 0) {
         return res.status(404).json({ error: 'Product not found' });
       }
-      res.json(result.rows[0]);
+      res.json(result[0]);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'An error occurred' });
     }
   });
@@ -52,8 +55,9 @@ export default (pool) => {
       if (result.rowCount === 0) {
         return res.status(404).json({ error: 'Product not found' });
       }
-      res.json(result.rows[0]);
+      res.json(result[0]);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'An error occurred' });
     }
   });
@@ -68,6 +72,7 @@ export default (pool) => {
       }
       res.status(204).send();
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: 'An error occurred' });
     }
   });
