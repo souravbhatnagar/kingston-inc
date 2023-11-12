@@ -82,9 +82,9 @@ example:
 curl http://kingston-inc.com/api/products
 ```
 
-Please refer the swagger documentation provided at `docs/swagger/openapi.yaml` for the all implemented REST APIs.
+Please refer the swagger documentation provided at `docs/swagger/openapi.yaml` for all the implemented REST APIs.
 
 ## Monitoring and Observability
 For our monitoring purpose we shall make use of [Prometheus](https://prometheus.io/docs/introduction/overview/#what-is-prometheus) and for a really interesting visualization we'll use [Grafana](https://grafana.com/docs/grafana/latest/getting-started/#get-started).
-Configure the node_exporter at the kubernetes cluster nodes accordingly and then create dashboard for critical metrices.
+Configure the node_exporter at the kubernetes cluster nodes accordingly and then create dashboard for critical metrices via [Grafana](http://localhost:3000).
 ![Dashboard](docs/assets/img/project_grafana_dashboard.png)
